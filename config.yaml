@@ -128,61 +128,27 @@ dns:
     - "*.mcdn.bilivideo.cn"
     - +.media.dssott.com
 proxies:
-  - name: djenglotzDO_hidessh
-    server: jygbqe.hidessh.my.id
-    port: 443
+  - name: Noice
+    server: 104.18.2.198
+    port: 80
     type: vmess
-    uuid: djenglotzDO_hidessh
+    uuid: 58e28837-cf1c-4d3b-be78-102e3813cc8f
     alterId: 0
     cipher: auto
-    tls: true
+    tls: false
     skip-cert-verify: true
-    servername: st2.zoom.us
-    network: ws
-    ws-opts:
-      path: /hidessh-vmess
-      headers:
-        Host: st2.zoom.us
-    udp: true
-    xudp: true
-  - name: djenglotzDTC_hidessh
-    server: id.auinspired.my.id
-    port: 443
-    type: vmess
-    uuid: djenglotzDTC_hidessh
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: st2.zoom.us
+    servername: sg.inspired-ru.my.id
     network: ws
     ws-opts:
       path: /vmess
       headers:
-        Host: st2.zoom.us
-    udp: true
-    xudp: true
-  - name: maelID_hidessh
-    server: id2-vip.csrvpn.my.id
-    port: 443
-    type: vmess
-    uuid: maelID_hidessh
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: st2.zoom.us
-    network: grpc
-    grpc-opts:
-      grpc-service-name: vmess
+        Host: sg.inspired-ru.my.id
     udp: true
 proxy-groups:
   - name: MANUAL
     type: select
     proxies:
-      - djenglotzDO_hidessh
-      - djenglotzDTC_hidessh
-      - maelID_hidessh
+      - Noice
       - LOAD-BALANCE
       - BEST-PING
       - FALLBACK
@@ -193,25 +159,20 @@ proxy-groups:
     url: http://hi.bonds.id/ping
     interval: 300
     proxies:
-      - djenglotzDO_hidessh
-      - djenglotzDTC_hidessh
-      - maelID_hidessh
+      - Noice
   - name: BEST-PING
     type: url-test
     url: http://hi.bonds.id/ping
     interval: 300
     tolerance: 50
     proxies:
-      - djenglotzDO_hidessh
-      - djenglotzDTC_hidessh
-      - maelID_hidessh
+      - Noice
   - name: FALLBACK
     type: fallback
     url: http://hi.bonds.id/ping
     interval: 300
     proxies:
-      - 
-      - maelID_hidessh
+      - Noice
   - name: ADS
     type: select
     proxies:
@@ -222,9 +183,18 @@ rule-providers:
     type: file
     behavior: classical
     url: https://raw.githubusercontent.com/wegare123/Rules_Clash/main/gaming.yaml
-    path: ./providers/gaming.yaml
-    interval: 86400      
+    path: ./confs/rule-set/gaming.yaml
+    interval: 86400
+  WhatsApp:
+    type: http
+    behavior: domain
+    url: https://pastebin.com/raw/huZ6fA1A
+    path: ./confs/rule-set/whatsapp.yaml
+    interval: 86400
 rules:
+  # Whatsapp
+  - PROCESS-NAME,com.whatsapp,DIRECT
+  - RULE-SET,WhatsApp,DIRECT
   - GEOSITE,category-ads-all,ADS
   - RULE-SET,direct,DIRECT
   - MATCH,MANUAL
