@@ -166,7 +166,7 @@ proxy-groups:
     interval: 300
     tolerance: 50
     proxies:
-      - Noice
+      - Noice 🇸🇬  🇸🇬 
   - name: FALLBACK
     type: fallback
     url: http://hi.bonds.id/ping
