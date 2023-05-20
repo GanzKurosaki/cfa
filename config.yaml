@@ -128,7 +128,7 @@ dns:
     - "*.mcdn.bilivideo.cn"
     - +.media.dssott.com
 proxies:
-  - name: Noice 🇸🇬  🇸🇬 
+  - name: Noice
     server: 104.18.2.198
     port: 80
     type: vmess
@@ -148,7 +148,7 @@ proxy-groups:
   - name: MANUAL
     type: select
     proxies:
-      - Noice 🇸🇬  🇸🇬 
+      - Noice
       - LOAD-BALANCE
       - BEST-PING
       - FALLBACK
@@ -159,20 +159,20 @@ proxy-groups:
     url: http://hi.bonds.id/ping
     interval: 300
     proxies:
-      - Noice 🇸🇬  🇸🇬 
+      - Noice
   - name: BEST-PING
     type: url-test
     url: http://hi.bonds.id/ping
     interval: 300
     tolerance: 50
     proxies:
-      - Noice 🇸🇬  🇸🇬 
+      - Noice
   - name: FALLBACK
     type: fallback
     url: http://hi.bonds.id/ping
     interval: 300
     proxies:
-      - Noice 🇸🇬  🇸🇬 
+      - Noice
   - name: ADS
     type: select
     proxies:
