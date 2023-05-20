@@ -185,16 +185,16 @@ rule-providers:
     url: https://raw.githubusercontent.com/wegare123/Rules_Clash/main/gaming.yaml
     path: ./confs/rule-set/gaming.yaml
     interval: 86400
-  WhatsApp:
-    type: http
-    behavior: domain
-    url: https://pastebin.com/raw/huZ6fA1A
-    path: ./confs/rule-set/whatsapp.yaml
-    interval: 86400
+#  WhatsApp:
+ #   type: http
+  #  behavior: domain
+   # url: https://pastebin.com/raw/huZ6fA1A
+    #path: ./confs/rule-set/whatsapp.yaml
+    #interval: 86400
 rules:
   # Whatsapp
-  - PROCESS-NAME,com.whatsapp,DIRECT
-  - RULE-SET,WhatsApp,DIRECT
+  #- PROCESS-NAME,com.whatsapp,DIRECT
+  #- RULE-SET,WhatsApp,DIRECT
   - GEOSITE,category-ads-all,ADS
-  - RULE-SET,direct,DIRECT
+ # - RULE-SET,direct,DIRECT
   - MATCH,MANUAL
