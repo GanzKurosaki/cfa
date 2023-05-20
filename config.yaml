@@ -196,5 +196,8 @@ rules:
   #- PROCESS-NAME,com.whatsapp,DIRECT
   #- RULE-SET,WhatsApp,DIRECT
   - GEOSITE,category-ads-all,ADS
+  - GEOSITE,rule-malicious,REJECT
+  - GEOSITE,oisd-full,REJECT
+  - GEOSITE,rule-ads,REJECT  
  # - RULE-SET,direct,DIRECT
   - MATCH,MANUAL
